@@ -1,0 +1,26 @@
+name: format and lint on push and PR
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  format-check:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install rye
+        run: curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
+      - name: rye sync
+        run: |
+          source $HOME/.rye/env
+          rye sync
+      - run: rye run ruff check --fix
+      - run: rye run ruff format
+      - run: rye run pytest
+
