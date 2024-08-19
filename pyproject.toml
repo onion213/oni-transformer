@@ -41,3 +41,11 @@ quote-style = "double"
 
 [tool.ruff.lint]
 select = ["I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["oni_transformer"]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
