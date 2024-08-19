@@ -43,7 +43,9 @@ class SingleHeadAttention(nn.Module):
         self.v_affine = Affine(v_token_vec_dim, affined_v_vec_dim)
         self.scaled_dot_product_attention = ScaledDotProductAttention(dropout_rate)
 
-    def forward(self, q: torch.Tensor, k: torch.Tensor, v: torch.Tensor) -> torch.Tensor:
+    def forward(
+        self, q: torch.Tensor, k: torch.Tensor, v: torch.Tensor, mask: torch.Tensor | None = None
+    ) -> torch.Tensor:
         """forward path.
 
         Caluculate in the following steps.
@@ -68,6 +70,6 @@ class SingleHeadAttention(nn.Module):
         affined_v = self.v_affine(v)
 
         # scale dot product attention
-        output = self.scaled_dot_product_attention(affined_q, affined_k, affined_v)
+        output = self.scaled_dot_product_attention(affined_q, affined_k, affined_v, mask)
 
         return output
