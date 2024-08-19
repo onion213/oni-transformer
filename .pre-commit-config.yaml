@@ -9,8 +9,7 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: rye run pytest tests
+        entry: rye test
         language: system
         types: [python]
-        pass_filenames: false
-        always_run: true
+
