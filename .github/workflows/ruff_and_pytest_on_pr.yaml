@@ -7,7 +7,7 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  format-check:
+  rye-check:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,16 @@ jobs:
         run: |
           source $HOME/.rye/env
           rye sync
-      - run: rye run ruff check --fix
-      - run: rye run ruff format
-      - run: rye run pytest
+      - name: rye lint
+        run: |
+          source $HOME/.rye/env
+          rye run lint --fix
+      - name: rye fmt
+        run: |
+          source $HOME/.rye/env
+          rye run fmt
+      - name: rye test
+        run: |
+          source $HOME/.rye/env
+          rye test
 
