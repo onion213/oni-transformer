@@ -160,6 +160,8 @@ nodeenv==1.9.1
     # via pre-commit
 notebook-shim==0.2.4
     # via jupyterlab
+numpy==2.1.0
+    # via oni-transformer
 overrides==7.7.0
     # via jupyter-server
 packaging==24.1

@@ -12,4 +12,5 @@ repos:
         entry: rye test
         language: system
         types: [python]
+        pass_filenames: false
 
