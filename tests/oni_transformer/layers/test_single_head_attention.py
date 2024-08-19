@@ -10,7 +10,7 @@ class TestSingleHeadAttention:
         q = torch.Tensor([[[2, 1, 2]]])
         k = torch.Tensor([[[2, 2, 1], [2, 1, 2], [1, 2, 2]]])
         v = torch.Tensor([[[2, 2, 1], [2, 1, 2], [1, 2, 2]]])
-        layer = L.SingleHeadAttention(token_vec_dim=3, output_token_vec_dim=3, dropout_rate=0.0)
+        layer = L.SingleHeadAttention(q_token_vec_dim=3, dropout_rate=0.0)
         layer.q_affine.net.weight = torch.nn.Parameter(torch.Tensor([[2, 1, 1], [1, 2, 1], [1, 1, 2]]))
         layer.q_affine.net.bias = torch.nn.Parameter(torch.Tensor([-6, -6, -6]))
         layer.k_affine.net.weight = torch.nn.Parameter(torch.Tensor([[2, 1, 1], [1, 2, 1], [1, 1, 2]]))
