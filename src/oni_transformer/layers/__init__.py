@@ -2,6 +2,7 @@ from oni_transformer.layers.add_and_normalize import AddAndNormalize
 from oni_transformer.layers.affine import Affine
 from oni_transformer.layers.concatenate import Concatenate
 from oni_transformer.layers.decoder_block import DecoderBlock
+from oni_transformer.layers.encoder import Encoder
 from oni_transformer.layers.encoder_block import EncoderBlock
 from oni_transformer.layers.multi_head_attention import MultiHeadAttention
 from oni_transformer.layers.position_wise_feed_forwarding import PositionWiseFeedForwarding
