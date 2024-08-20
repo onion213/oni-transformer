@@ -6,7 +6,7 @@ from oni_transformer.layers.position_wise_feed_forwarding import PositionWiseFee
 from oni_transformer.layers.self_attention import SelfAttention
 
 
-class TransformerBlock(nn.Module):
+class EncoderBlock(nn.Module):
     def __init__(self, token_vec_dim: int, num_heads: int, dropout_rate: float = 0.1):
         super().__init__()
         self.attention = SelfAttention(token_vec_dim, num_heads)
